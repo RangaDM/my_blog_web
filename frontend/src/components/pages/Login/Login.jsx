@@ -12,7 +12,7 @@ import {
 
 const Login = () => {
   return (
-    <div className="mx-auto justify-center max-w-screen-md pt-15 flex pb-12">
+    <div className="mx-auto justify-center max-w-screen-md pt-12 flex pb-12">
       <Card className="w-96">
         <CardHeader
           variant="gradient"
