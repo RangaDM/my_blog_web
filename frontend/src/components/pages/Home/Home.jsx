@@ -25,8 +25,6 @@ const Home = () => {
               <Typography
                 color="blue-gray"
                 className="font-medium"
-                
-                
               >
                 UOR E-FAC
               </Typography>
