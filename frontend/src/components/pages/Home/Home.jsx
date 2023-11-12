@@ -25,6 +25,7 @@ const Home = () => {
               <Typography
                 color="blue-gray"
                 className="font-medium"
+                textGradient
               >
                 UOR E-FAC
               </Typography>
@@ -38,6 +39,7 @@ const Home = () => {
                   href="#"
                   variant="lead"
                   color="blue"
+                  textGradient
                 >
                 <i className="fab fa-facebook" />
                 </Typography>
@@ -48,7 +50,7 @@ const Home = () => {
                   href="#"
                   variant="lead"
                   color="light-blue"
-                  
+                  textGradient
                 >
                   <i className="fab fa-twitter" />
                 </Typography>
@@ -59,7 +61,7 @@ const Home = () => {
                   href="#"
                   variant="lead"
                   color="purple"
-                  
+                  textGradient
                 >
                   <i className="fab fa-instagram" />
                 </Typography>
