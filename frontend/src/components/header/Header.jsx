@@ -20,12 +20,8 @@ import {
 import {
   Bars4Icon,
   GlobeAmericasIcon,
-  NewspaperIcon,
   PhoneIcon,
-  RectangleGroupIcon,
-  SquaresPlusIcon,
   SunIcon,
-  TagIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/solid";
 
