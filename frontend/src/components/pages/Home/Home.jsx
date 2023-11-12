@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
-import propic from "../../../images/pic.png";
+import propic from "../../../images/Ranga.png";
 import {
   Card,
   CardHeader,

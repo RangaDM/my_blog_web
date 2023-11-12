@@ -5,6 +5,7 @@ import Mainlayout from "../Layout/Mainlayout";
 import Login from "../components/pages/Login/Login";
 import SignUp from "../components/Signup/SignUp";
 import ContactUs from "../components/pages/ContactUs";
+import Categories from "../components/pages/Categories";
 
 const AppRouter = () => {
   return (
@@ -14,6 +15,7 @@ const AppRouter = () => {
                 <Route path="/" element={<Home />} />
             <Route path="login" element={<Login/>}/>
             <Route path="signup" element={<SignUp/>}/>
+            <Route path="categories" element={<Categories />} />
             <Route path="contact-us" element={<ContactUs />} />
             </Route>
         </Routes>

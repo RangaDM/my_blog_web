@@ -31,11 +31,6 @@ import {
 
 const navListMenuItems = [
   {
-    title: "Products",
-    description: "Find the perfect solution for your needs.",
-    icon: SquaresPlusIcon,
-  },
-  {
     title: "About Us",
     description: "Meet and learn about our dedication",
     icon: UserGroupIcon,
@@ -59,21 +54,6 @@ const navListMenuItems = [
     title: "Contact",
     description: "Find the perfect solution for your needs.",
     icon: PhoneIcon,
-  },
-  {
-    title: "News",
-    description: "Read insightful articles, tips, and expert opinions.",
-    icon: NewspaperIcon,
-  },
-  {
-    title: "Products",
-    description: "Find the perfect solution for your needs.",
-    icon: RectangleGroupIcon,
-  },
-  {
-    title: "Special Offers",
-    description: "Explore limited-time deals and bundles",
-    icon: TagIcon,
   },
 ];
 
@@ -209,13 +189,13 @@ const Header = () => {
           <NavList />
         </div>
         <div className="hidden gap-2 lg:flex">
-          <Button 
+          <Button
             onClick={() => {
               window.location.href = "/login";
             }} variant="text" size="sm" color="blue-gray">
             Sign In
           </Button>
-          <Button 
+          <Button
             onClick={() => {
               window.location.href = "/signup";
             }} variant="gradient" size="sm">
