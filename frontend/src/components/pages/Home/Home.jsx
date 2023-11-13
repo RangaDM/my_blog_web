@@ -13,6 +13,8 @@ import { IconButton } from "@mui/material";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Home = () => {
   return (
@@ -53,7 +55,7 @@ const Home = () => {
                   textGradient
                 >
                   <IconButton>
-                    <FacebookOutlinedIcon />
+                    <FacebookOutlinedIcon sx={{color:"blue"}}/>
                   </IconButton>
                 </Typography>
               </Tooltip>
@@ -73,12 +75,12 @@ const Home = () => {
                   textGradient
                 >
                   <IconButton>
-                    <TwitterIcon />
+                    <TwitterIcon sx={{color:"#1C9CEA"}}/>
                   </IconButton>
                 </Typography>
               </Tooltip>
               <Tooltip
-                placement="right"
+                placement="bottom"
                 content="Follow"
                 animate={{
                   mount: { scale: 1, y: 0 },
@@ -93,7 +95,47 @@ const Home = () => {
                   textGradient
                 >
                   <IconButton>
-                    <InstagramIcon />
+                    <InstagramIcon sx={{color:"#DE6666"}}/>
+                  </IconButton>
+                </Typography>
+              </Tooltip>
+              <Tooltip
+                placement="top"
+                content="Visit"
+                animate={{
+                  mount: { scale: 1, y: 0 },
+                  unmount: { scale: 0, y: 25 },
+                }}
+              >
+                <Typography
+                  as="a"
+                  href="https://github.com/RangaDM"
+                  variant="lead"
+                  color="black"
+                  textGradient
+                >
+                  <IconButton>
+                    <GitHubIcon sx={{color:"black"}}/>
+                  </IconButton>
+                </Typography>
+              </Tooltip>
+              <Tooltip
+                placement="right"
+                content="Follow"
+                animate={{
+                  mount: { scale: 1, y: 0 },
+                  unmount: { scale: 0, y: 25 },
+                }}
+              >
+                <Typography
+                  as="a"
+                  href="https://www.linkedin.com/in/ranga-maithreepala-0a9196262"
+                  variant="lead"
+                  color="blue"
+                  textGradient
+                >
+                  <IconButton>
+                    <LinkedInIcon sx={{color:" #0A66C2"}}/>
                   </IconButton>
                 </Typography>
               </Tooltip>
