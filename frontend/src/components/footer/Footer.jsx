@@ -1,12 +1,15 @@
-import React from 'react'
-import logo from '../../images/pic.png'
+import React from "react";
+import logo from "../../images/pic.png";
 import { Typography } from "@material-tailwind/react";
+import { IconButton } from "@mui/material";
 
 const Footer = () => {
   return (
     <footer className="w-full bg-white p-8">
       <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
-        <img src={logo} alt="logo-ct" className="w-10" />
+        <IconButton href="/">
+          <img src={logo} alt="logo-ct" className="w-10" />
+        </IconButton>
         <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
           <li>
             <Typography
@@ -41,7 +44,7 @@ const Footer = () => {
           <li>
             <Typography
               as="a"
-              href="#"
+              href="contact-us"
               color="blue-gray"
               className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
             >
@@ -56,6 +59,6 @@ const Footer = () => {
       </Typography>
     </footer>
   );
-}
+};
 
-export default Footer
+export default Footer;
