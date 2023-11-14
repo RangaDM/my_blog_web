@@ -6,6 +6,7 @@ import Login from "../components/pages/Login/Login";
 import SignUp from "../components/pages/Signup/SignUp";
 import ContactUs from "../components/pages/ContactUs";
 import Categories from "../components/pages/Categories";
+import AboutUs from "../components/pages/AboutUs";
 
 const AppRouter = () => {
   return (
@@ -17,6 +18,7 @@ const AppRouter = () => {
             <Route path="signup" element={<SignUp/>}/>
             <Route path="categories" element={<Categories />} />
             <Route path="contact-us" element={<ContactUs />} />
+            <Route path="about-us" element={<AboutUs />} />
             </Route>
         </Routes>
     </BrowserRouter>
