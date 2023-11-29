@@ -18,7 +18,7 @@ const SignUp = () => {
     <img
       className=" mx-auto object-cover object-center shadow-blue-gray-900/50"
       src={backImage}
-      alt="logo image"
+      alt="logo"
     />
     <Dialog size="xs" open={true} className="bg-transparent shadow-none">
       <div className="mx-auto justify-center max-w-screen-md pt-12 flex pb-12">
