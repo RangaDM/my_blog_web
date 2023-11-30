@@ -1,4 +1,5 @@
 import React from "react";
+import { Avatar, Tooltip } from "@material-tailwind/react";
 import {
   Navbar,
   Collapse,
@@ -30,31 +31,31 @@ const navListMenuItems = [
     title: "About Us",
     description: "Meet and learn about our dedication",
     icon: UserGroupIcon,
-    link:'/about-us'
+    link: "/about-us",
   },
   {
     title: "Blog",
     description: "Find the perfect solution for your needs.",
     icon: Bars4Icon,
-    link:'#'
+    link: "blogs",
   },
   {
     title: "Services",
     description: "Learn how we can help you achieve your goals.",
     icon: SunIcon,
-    link:'/services'
+    link: "/services",
   },
   {
     title: "Support",
     description: "Reach out to us for assistance or inquiries",
     icon: GlobeAmericasIcon,
-    link:'/support'
+    link: "/support",
   },
   {
     title: "Contact",
     description: "Find the perfect solution for your needs.",
     icon: PhoneIcon,
-    link:'/contact-us'
+    link: "/contact-us",
   },
 ];
 
@@ -62,7 +63,7 @@ function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const renderItems = navListMenuItems.map(
-    ({ icon, title, description ,link }, key) => (
+    ({ icon, title, description, link }, key) => (
       <a key={key} href={link}>
         <MenuItem className="flex items-center gap-3 rounded-lg">
           <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
@@ -149,6 +150,15 @@ function NavList() {
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">Home</ListItem>
       </Typography>
+      <Typography
+        as="a"
+        href="blogs"
+        variant="small"
+        color="blue-gray"
+        className="font-medium"
+      >
+        <ListItem className="flex items-center gap-2 py-2 pr-4">Blog</ListItem>
+      </Typography>
       <NavListMenu />
       <Typography
         as="a"
@@ -189,17 +199,33 @@ const Header = () => {
         <div className="hidden lg:block">
           <NavList />
         </div>
-        <div className="hidden gap-2 lg:flex">
-          <Button
-            onClick={() => {
-              window.location.href = "/login";
-            }} variant="text" size="sm" color="blue-gray">
-            Profile
-          </Button>
+        <div className="hidden items-center gap-2 lg:flex">
+          <Tooltip
+            placement="top"
+            content="Profile"
+            animate={{
+              mount: { scale: 1, y: 0 },
+              unmount: { scale: 0, y: 25 },
+            }}
+          >
+            <Avatar
+              onClick={() => {
+                window.location.href = "profile";
+              }}
+              variant="circular"
+              alt="profile"
+              size="sm"
+              className="border-1 hover:cursor-pointer focus:z-10 mr-3"
+              src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+          </Tooltip>
           <Button
             onClick={() => {
               window.location.href = "/signup";
-            }} variant="gradient" size="sm">
+            }}
+            variant="gradient"
+            size="sm"
+          >
             Join
           </Button>
         </div>

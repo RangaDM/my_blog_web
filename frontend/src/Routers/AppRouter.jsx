@@ -10,6 +10,7 @@ import AboutUs from "../components/pages/AboutUs";
 import User from "../components/pages/User";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../Firebase/firebase";
+import Blogs from "../Blogs/Blogs";
 
 const AppRouter = () => {
 
@@ -40,6 +41,7 @@ const AppRouter = () => {
             <Route path="contact-us" element={uid ? <ContactUs /> : <Login/>} />
             <Route path="about-us" element={<AboutUs />} />
             <Route path="profile" element={ uid ? <User/> : <Login/>}/>
+            <Route path="blogs" element={<Blogs/>}/>
             </Route>
         </Routes>
     </BrowserRouter>
