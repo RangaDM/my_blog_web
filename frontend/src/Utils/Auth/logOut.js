@@ -1,12 +1,11 @@
 import { signOut } from "firebase/auth";
 import { auth } from "../../Firebase/firebase";
-import { Navigate } from "react-router-dom";
 
 const logOut = () => {
     signOut(auth)
               .then(() => {
                 // Sign-out successful.
-                <Navigate to = "/" />
+                window.location.href = "/";
                 
               })
               .catch((error) => {

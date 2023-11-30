@@ -19,7 +19,7 @@ const AppRouter = () => {
     const userCheck = onAuthStateChanged(auth, (user) => {
       if (user) {
         const uid = user.uid;
-        // console.log(uid);
+        console.log(uid);
         setUid(uid);
       } else {
         console.log("no user");
@@ -33,11 +33,11 @@ const AppRouter = () => {
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<Mainlayout />}>
-                <Route path="/" element={<Home />} />
+                <Route index element={<Home />} />
             <Route path="login" element={<Login/>}/>
             <Route path="signup" element={<SignUp/>}/>
             <Route path="categories" element={<Categories />} />
-            <Route path="contact-us" element={<ContactUs />} />
+            <Route path="contact-us" element={uid ? <ContactUs /> : <Login/>} />
             <Route path="about-us" element={<AboutUs />} />
             <Route path="profile" element={ uid ? <User/> : <Login/>}/>
             </Route>

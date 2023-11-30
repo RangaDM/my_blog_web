@@ -5,23 +5,25 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../Firebase/firebase";
 
 const User = () => {
-  const [uid, setUid] = useState();
+  // const [uid, setUid] = useState();
 
-  useEffect(() => {
-    const userCheck = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const uid = user.uid;
-        // console.log(uid);
-        setUid(uid);
-      } else {
-        console.log("no user");
-      }
-    });
-    return () => {
-      userCheck();
-    };
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   const userCheck = onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       const uid = user.uid;
+  //       // console.log(uid);
+  //       setUid(uid);
+  //     } else {
+  //       console.log("no user");
+  //     }
+  //   });
+  //   return () => {
+  //     userCheck();
+  //   };
+  //   // eslint-disable-next-line
+  // }, []);
+
+  // console.log(uid);
 
   return (
     <div className="mt-12">
@@ -31,7 +33,6 @@ const User = () => {
         color="red"
         onClick={() => {
           logOut();
-          window.location.href = "/";
         }}
       >
         Log Out

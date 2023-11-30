@@ -11,8 +11,34 @@ import {
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import { IconButton } from "@mui/material";
 import backImage from "../../../images/Ranga.png"
+import { useState } from "react";
+import userRegister from "../../../Utils/Auth/reg";
 
 const SignUp = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleSignUp = () => {
+    // Do something with the email and password, e.g., send to server
+    console.log("Email:", email);
+    console.log("Password:", password);
+    console.log("Name:", name);
+    userRegister(email, password, name);
+  };
+
   return (
     <>
     <img
@@ -28,7 +54,7 @@ const SignUp = () => {
             color="pink"
             className="mb-1 h-28 flex flex-col justify-center place-items-center"
           >
-            <IconButton 
+            <IconButton
             onClick={() => {
               window.location.href = "/";
             }}>
@@ -48,6 +74,8 @@ const SignUp = () => {
                   Your Name
                 </Typography>
                 <Input
+                  onChange={handleNameChange}
+                  value={name}
                   size="lg"
                   placeholder="name"
                   className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -59,6 +87,8 @@ const SignUp = () => {
                   Your Email
                 </Typography>
                 <Input
+                  onChange={handleEmailChange}
+                  value={email}
                   size="lg"
                   placeholder="name@mail.com"
                   className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -70,6 +100,8 @@ const SignUp = () => {
                   Password
                 </Typography>
                 <Input
+                  onChange={handlePasswordChange}
+                  value={password}
                   type="password"
                   size="lg"
                   placeholder="********"
@@ -88,7 +120,7 @@ const SignUp = () => {
                   >
                     I agree the
                     <a
-                      href="#"
+                      href="*"
                       className="font-medium transition-colors hover:text-gray-900"
                     >
                       &nbsp;Terms and Conditions
@@ -97,7 +129,9 @@ const SignUp = () => {
                 }
                 containerProps={{ className: "-ml-2.5" }}
               />
-              <Button className="mt-5" fullWidth>
+              <Button className="mt-5" fullWidth onClick={()=>{
+                handleSignUp();
+              }}>
                 sign up
               </Button>
               <Typography color="gray" className="mt-3 text-center font-normal">

@@ -63,7 +63,7 @@ function NavListMenu() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const renderItems = navListMenuItems.map(
     ({ icon, title, description ,link }, key) => (
-      <a href={link}>
+      <a key={key} href={link}>
         <MenuItem className="flex items-center gap-3 rounded-lg">
           <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
             {" "}
@@ -194,13 +194,13 @@ const Header = () => {
             onClick={() => {
               window.location.href = "/login";
             }} variant="text" size="sm" color="blue-gray">
-            Sign In
+            Profile
           </Button>
           <Button
             onClick={() => {
               window.location.href = "/signup";
             }} variant="gradient" size="sm">
-            Sign Up
+            Join
           </Button>
         </div>
         <IconButton
@@ -221,14 +221,14 @@ const Header = () => {
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
           <Button
             onClick={() => {
-              window.location.href = "/login";
+              window.location.href = "/profile";
             }}
             variant="outlined"
             size="sm"
             color="blue-gray"
             fullWidth
           >
-            Sign In
+            Profile
           </Button>
           <Button
             onClick={() => {
@@ -238,7 +238,7 @@ const Header = () => {
             size="sm"
             fullWidth
           >
-            Sign Up
+            Join
           </Button>
         </div>
       </Collapse>

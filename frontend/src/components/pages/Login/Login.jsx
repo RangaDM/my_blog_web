@@ -16,24 +16,23 @@ import backImage from "../../../images/Ranga.png";
 import userLogin from "../../../Utils/Auth/login";
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-  
-    const handleEmailChange = (e) => {
-      setEmail(e.target.value);
-    };
-  
-    const handlePasswordChange = (e) => {
-      setPassword(e.target.value);
-    };
-  
-    const handleSignIn = () => {
-      // Do something with the email and password, e.g., send to server
-      console.log("Email:", email);
-      console.log("Password:", password);
-      userLogin(email, password);
-    };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSignIn = () => {
+    // Do something with the email and password, e.g., send to server
+    console.log("Email:", email);
+    console.log("Password:", password);
+    userLogin(email, password);
+  };
 
   return (
     <>
@@ -69,14 +68,32 @@ const Login = () => {
               >
                 Enter your email and password to Sign In.
               </Typography>
-              <Input type="Email" value={email} onChange={handleEmailChange} placeholder="Your email" size="lg" />
-              <Input type="Password" value={password} onChange={handlePasswordChange} placeholder="Your password" size="lg" />
+              <Input
+                type="Email"
+                value={email}
+                onChange={handleEmailChange}
+                placeholder="Your email"
+                size="lg"
+              />
+              <Input
+                type="Password"
+                value={password}
+                onChange={handlePasswordChange}
+                placeholder="Your password"
+                size="lg"
+              />
               <div className="-ml-2.5">
                 <Checkbox label="Remember Me" />
               </div>
             </CardBody>
             <CardFooter className="pt-0">
-              <Button variant="gradient" fullWidth onClick={()=>{handleSignIn(); window.location.href = '/profile'}}>
+              <Button
+                variant="gradient"
+                fullWidth
+                onClick={() => {
+                  handleSignIn();
+                }}
+              >
                 Sign In
               </Button>
               <Typography variant="small" className="mt-6 flex justify-center">
