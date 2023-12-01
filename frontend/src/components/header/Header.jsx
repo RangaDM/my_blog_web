@@ -29,6 +29,7 @@ import getImageFirebase from "../../Utils/DataFetch/getImage";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../Firebase/firebase";
 import getDataDocument from "../../Utils/DataFetch/getDataDocument";
+import proPic from "../../images/profileIcon.svg"
 
 const navListMenuItems = [
   {
@@ -245,7 +246,7 @@ const Header = () => {
               alt="profile"
               size="sm"
               className="border-1 hover:cursor-pointer focus:z-10 mr-3"
-              src={imgUrl}
+              src={Nuser ? imgUrl : proPic}
             />
           </Tooltip>
           <Button
