@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Avatar, Tooltip } from "@material-tailwind/react";
 import {
   Navbar,
@@ -25,6 +25,10 @@ import {
   SunIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/solid";
+import getImageFirebase from "../../Utils/DataFetch/getImage";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../Firebase/firebase";
+import getDataDocument from "../../Utils/DataFetch/getDataDocument";
 
 const navListMenuItems = [
   {
@@ -177,6 +181,8 @@ function NavList() {
 
 const Header = () => {
   const [openNav, setOpenNav] = React.useState(false);
+  const [imgUrl, setImgUrl] = useState("");
+  const [Nuser, setUser] = useState();
 
   React.useEffect(() => {
     window.addEventListener(
@@ -184,6 +190,29 @@ const Header = () => {
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
   }, []);
+
+  useEffect(() => {
+    const userCheck = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        getDataDocument("users", user.uid, setUser);
+        // console.log(Nuser.name);
+      } else {
+        console.log("no user");
+      }
+    });
+    return () => {
+      userCheck();
+    };
+    // eslint-disable-next-line
+  }, []);
+
+  if(imgUrl === ""){
+    setTimeout(() => {
+      getImageFirebase(Nuser?.uid, setImgUrl);
+      // eslint-disable-next-line
+      console.log(imgUrl);
+    }, 1500);
+  }
 
   return (
     <Navbar className="mx-auto max-w-screen-xl px-4 py-2 mb-1">
@@ -216,7 +245,7 @@ const Header = () => {
               alt="profile"
               size="sm"
               className="border-1 hover:cursor-pointer focus:z-10 mr-3"
-              src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src={imgUrl}
             />
           </Tooltip>
           <Button
