@@ -2,7 +2,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../Firebase/firebase";
 
 
-const userLogin = (email , password) => {
+const userLogin = (email , password , setFunction) => {
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in
@@ -13,6 +13,7 @@ const userLogin = (email , password) => {
   .catch((error) => {
     const errorMessage = error.message;
     console.log(errorMessage);
+    setFunction("Enter valid email and password");
   });
 }
 

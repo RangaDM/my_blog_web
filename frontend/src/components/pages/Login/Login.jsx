@@ -14,10 +14,13 @@ import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import { IconButton } from "@mui/material";
 import backImage from "../../../images/Ranga.png";
 import userLogin from "../../../Utils/Auth/login";
+import googleLogin from "../../../Utils/Auth/loginWithGoogle";
+import googleicon from "../../../images/google-icon.svg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [openError, setOpenError] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -31,18 +34,22 @@ const Login = () => {
     // Do something with the email and password, e.g., send to server
     console.log("Email:", email);
     console.log("Password:", password);
-    userLogin(email, password);
+    userLogin(email, password, setOpenError);
+  };
+
+  const handleSignInWithGoogle = () => {
+    googleLogin();
   };
 
   return (
     <>
       <img
-        className=" mx-auto object-cover object-center shadow-blue-gray-900/50"
+        className="mx-auto object-cover object-center shadow-blue-gray-900/50"
         src={backImage}
         alt="logo"
       />
       <Dialog size="xs" open={true} className="bg-transparent shadow-none">
-        <div className=" mx-auto justify-center max-w-screen-md pt-12 flex pb-12">
+        <div className="mx-auto justify-center max-w-screen-md pt-12 flex pb-12">
           <Card className="w-96">
             <CardHeader
               variant="gradient"
@@ -61,13 +68,24 @@ const Login = () => {
               </Typography>
             </CardHeader>
             <CardBody className="flex flex-col gap-4">
-              <Typography
-                className=" font-normal"
-                variant="paragraph"
-                color="gray"
-              >
-                Enter your email and password to Sign In.
-              </Typography>
+              {openError ? (
+                <Typography
+                  className="font-normal"
+                  variant="paragraph"
+                  color="red"
+                >
+                  {openError}
+                </Typography>
+              ) : (
+                <Typography
+                  className="font-normal"
+                  variant="paragraph"
+                  color="gray"
+                >
+                  Enter your email and password to Sign In.
+                </Typography>
+              )}
+
               <Input
                 type="Email"
                 value={email}
@@ -96,6 +114,35 @@ const Login = () => {
               >
                 Sign In
               </Button>
+              <div
+                className="mt-5"
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                <div
+                  style={{ flex: 1, backgroundColor: "#e73674", height: "2px" }}
+                />
+
+                <Typography
+                  variant="small"
+                  className="mx-2 flex justify-center"
+                >
+                  or
+                </Typography>
+
+                <div
+                  style={{ flex: 1, backgroundColor: "#E73673", height: "2px" }}
+                />
+              </div>
+              <div className="flex items-center justify-center">
+                <img
+                  src={googleicon}
+                  onClick={() => {
+                    handleSignInWithGoogle();
+                  }}
+                  alt="google"
+                  className="w-6 h-6 m-3 -mb-3 hover:cursor-pointer"
+                />
+              </div>
               <Typography variant="small" className="mt-6 flex justify-center">
                 Don&apos;t have an account?
                 <Typography
