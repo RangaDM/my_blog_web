@@ -7,7 +7,8 @@ import ContactUs from "../components/pages/ContactUs";
 import Categories from "../components/pages/Categories";
 import AboutUs from "../components/pages/AboutUs";
 import User from "../components/pages/User";
-import Blogs from "../Blogs/Blogs";
+import Blogs from "../Blogs_Cards/Blogs";
+import { BlogOne } from "../Blogs/Blog1/BlogOne";
 
 const AppRouter = () => {
   // const [uid, setUid] = useState();
@@ -39,7 +40,10 @@ const AppRouter = () => {
           <Route path="contact-us" element={<ContactUs />} />
           <Route path="about-us" element={<AboutUs />} />
           <Route path="profile" element={<User />} />
-          <Route path="blogs" element={<Blogs />} />
+          <Route path="blogs">
+            <Route index element={<Blogs />} />
+            <Route path=":blogID" element={<BlogOne />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

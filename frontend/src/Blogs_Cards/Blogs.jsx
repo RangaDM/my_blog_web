@@ -9,6 +9,7 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const Blogs = () => {
   const [blogData, setBlogData] = useState([]);
@@ -26,8 +27,8 @@ const Blogs = () => {
       <section className="w-full p-4">
         <h1 className=" text-lg font-bold mt-2 ml-2 mb-3">Blogs</h1>
         <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-[auto] gap-5">
-          {blogData?.map(({ image, title, des }, index) => (
-            <BlogItems key={index} image={image} title={title} des={des} />
+          {blogData?.map(({ image, title, des, blogID }, index) => (
+            <BlogItems key={index} image={image} title={title} des={des} blogID={blogID} />
           ))}
         </div>
       </section>
@@ -37,8 +38,8 @@ const Blogs = () => {
 
 export default Blogs;
 
-const BlogItems = ({ image, title, des }) => (
-  <a href="#" className="inline-block">
+const BlogItems = ({ image, title, des , blogID }) => (
+  <Link to={`/blogs/${blogID}`}>
     <Card className="mt-8">
       <CardHeader color="blue-gray" className="relative">
         <img src={image} alt={title} />
@@ -73,5 +74,5 @@ const BlogItems = ({ image, title, des }) => (
         {/* </a> */}
       </CardFooter>
     </Card>
-  </a>
+  </Link>
 );

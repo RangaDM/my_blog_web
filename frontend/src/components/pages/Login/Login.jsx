@@ -21,6 +21,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [openError, setOpenError] = useState("");
+  const [GimgURL, setGimgURL] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -38,7 +39,7 @@ const Login = () => {
   };
 
   const handleSignInWithGoogle = () => {
-    googleLogin();
+    googleLogin(setGimgURL);
   };
 
   return (

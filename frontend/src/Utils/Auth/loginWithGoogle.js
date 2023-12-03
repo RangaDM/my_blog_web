@@ -5,7 +5,7 @@ import setDataDocument from "../DataFetch/setDataDocument";
 
 const provider = new GoogleAuthProvider();
 
-const googleLogin = () => {
+const googleLogin = (setFunction) => {
   signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -13,6 +13,7 @@ const googleLogin = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      setFunction(user.photoURL);
       setDataDocument("users", user.uid, {
         name: user.displayName,
         email: user.email,
