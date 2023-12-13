@@ -10,7 +10,7 @@ import imageUpload from "../../Utils/DataFetch/imageUpload";
 const User = () => {
   const [Nuser, setUser] = useState();
   const [img , setImg] = useState('');
-
+  
   useEffect(() => {
     const userCheck = onAuthStateChanged(auth, (user) => {
       if (user) {

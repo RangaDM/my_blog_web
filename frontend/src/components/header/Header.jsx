@@ -206,12 +206,24 @@ const Header = () => {
     };
     // eslint-disable-next-line
   }, []);
+// console.log(imgUrl);
+
+const setToLocal = (imgUrl) => {
+  localStorage.setItem('savedUrl', imgUrl);
+  // return savedURL;
+}
+
+const getFromLocal = () => {
+  const savedURL = localStorage.getItem('savedUrl');
+  return savedURL;
+}
 
   if(imgUrl === ""){
     setTimeout(() => {
       getImageFirebase(Nuser?.uid, setImgUrl);
-      // eslint-disable-next-line
       console.log(imgUrl);
+      setToLocal(imgUrl);
+      // eslint-disable-next-line
     }, 1500);
   }
 
