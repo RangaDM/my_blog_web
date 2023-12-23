@@ -16,11 +16,11 @@ import backImage from "../../../images/Ranga.png";
 import userLogin from "../../../Utils/Auth/login";
 import googleLogin from "../../../Utils/Auth/loginWithGoogle";
 import googleicon from "../../../images/google-icon.svg";
-import { useDispatch } from "react-redux";
-import { login } from "../../../store/slices/userSlice";
+// import { useDispatch } from "react-redux";
+// import { login } from "../../../store/slices/userSlice";
 
 const Login = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,19 +40,20 @@ const Login = () => {
     console.log("Email:", email);
     console.log("Password:", password);
     userLogin(email, password, setOpenError);
-    if (setOpenError === "") {
-      dispatch(
-        login({
-          email: email,
-          password: password,
-        })
-      );
-      console.log("Loging details sent to redux");
-    }
+    // if (setOpenError === "") {
+    //   dispatch(
+    //     login({
+    //       email: email,
+    //       password: password,
+    //     })
+    //   );
+    //   console.log("Loging details sent to redux");
+    // }
   };
 
   const handleSignInWithGoogle = () => {
     googleLogin(setGimgURL);
+    console.log(GimgURL);
   };
 
   return (

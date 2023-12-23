@@ -2,8 +2,7 @@ import React from "react";
 import {
   Dialog,
   DialogHeader,
-  DialogBody,
-  DialogFooter,
+  DialogBody
 } from "@material-tailwind/react";
  
 export function DialogCustomAnimation() {
